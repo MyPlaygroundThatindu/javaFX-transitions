@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
@@ -54,9 +55,10 @@
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <Spinner layoutX="31.0" layoutY="46.0" prefHeight="24.0" prefWidth="124.0" />
-                        <Button layoutX="176.0" layoutY="45.0" mnemonicParsing="false" text="Scale" />
-                        <Circle fill="#ff921f" layoutX="142.0" layoutY="141.0" radius="66.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Spinner fx:id="txtScale" layoutX="31.0" layoutY="46.0" prefHeight="24.0" prefWidth="124.0" />
+                        <Button fx:id="btnScale" layoutX="176.0" layoutY="45.0" mnemonicParsing="false" onAction="#btnScaleOnAction" text="Scale" />
+                        <Circle fx:id="shpScale" fill="#ff921f" layoutX="142.0" layoutY="141.0" radius="66.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Button fx:id="btnReset" layoutX="29.0" layoutY="12.0" mnemonicParsing="false" onAction="#btnRestOnAction" prefWidth="22.0" text="R" />
                      </children>
                   </AnchorPane>
                </children>
@@ -70,9 +72,13 @@
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <ComboBox layoutX="9.0" layoutY="32.0" prefHeight="24.0" prefWidth="124.0" />
-                        <Button layoutX="153.0" layoutY="32.0" mnemonicParsing="false" text="Translate" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="132.0" layoutX="64.0" layoutY="86.0" stroke="BLACK" strokeType="INSIDE" width="138.0" />
+                        <ComboBox fx:id="cbTranslate" layoutX="9.0" layoutY="32.0" prefHeight="24.0" prefWidth="124.0" />
+                        <Button fx:id="btnTranslate" layoutX="153.0" layoutY="32.0" mnemonicParsing="false" onAction="#btnTranslateOnAction" text="Translate" />
+                        <AnchorPane layoutX="64.0" layoutY="86.0">
+                           <children>
+                              <Rectangle fx:id="shpTranslate" arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="132.0" stroke="BLACK" strokeType="INSIDE" width="138.0" />
+                           </children>
+                        </AnchorPane>
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: grey;" HBox.hgrow="ALWAYS">
@@ -82,10 +88,13 @@
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <ColorPicker layoutX="11.0" layoutY="29.0" prefHeight="24.0" prefWidth="109.0" />
-                        <ColorPicker layoutX="11.0" layoutY="60.0" prefHeight="24.0" prefWidth="109.0" />
-                        <Circle fill="#cdff1f" layoutX="137.0" layoutY="158.0" radius="64.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Button layoutX="192.0" layoutY="29.0" mnemonicParsing="false" text="Fill" />
+                        <ColorPicker fx:id="clrFrom" layoutX="11.0" layoutY="29.0" prefHeight="24.0" prefWidth="109.0" />
+                        <ColorPicker fx:id="clrTo" layoutX="11.0" layoutY="60.0" prefHeight="24.0" prefWidth="109.0">
+                           <value>
+                              <Color red="0.6447368264198303" green="0.2178971767425537" blue="0.2178971767425537" />
+                           </value></ColorPicker>
+                        <Circle fx:id="shpFill" fill="WHITE" layoutX="137.0" layoutY="158.0" radius="64.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Button fx:id="btnFill" layoutX="192.0" layoutY="29.0" mnemonicParsing="false" onAction="#btnFillOnAction" text="Fill" />
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: grey;" HBox.hgrow="ALWAYS">
@@ -95,10 +104,16 @@
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <ColorPicker layoutX="5.0" layoutY="32.0" prefHeight="24.0" prefWidth="109.0" />
-                        <ColorPicker layoutX="5.0" layoutY="60.0" prefHeight="24.0" prefWidth="109.0" />
-                        <Button layoutX="166.0" layoutY="32.0" mnemonicParsing="false" text="Stroke" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1ff2ff" height="121.0" layoutX="71.0" layoutY="97.0" stroke="BLACK" strokeType="INSIDE" width="128.0" />
+                        <ColorPicker fx:id="clrFromStroke" layoutX="5.0" layoutY="32.0" prefHeight="24.0" prefWidth="109.0">
+                           <value>
+                              <Color />
+                           </value></ColorPicker>
+                        <ColorPicker fx:id="clrToStroke" layoutX="5.0" layoutY="60.0" prefHeight="24.0" prefWidth="109.0">
+                           <value>
+                              <Color green="0.7333333492279053" blue="1.0" />
+                           </value></ColorPicker>
+                        <Button fx:id="btnStroke" layoutX="166.0" layoutY="32.0" mnemonicParsing="false" onAction="#btnStrokeOnAction" text="Stroke" />
+                        <Rectangle fx:id="shpStroke" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="71.0" layoutY="97.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="10.0" width="128.0" />
                      </children>
                   </AnchorPane>
                </children>
